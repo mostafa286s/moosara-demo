@@ -1,0 +1,95 @@
+/* موس‌آرا — دمو معرفی | Light، RTL، بدون CDN */
+@font-face{
+  font-family:"Vazirmatn";
+  src:url("../fonts/Vazirmatn-Variable.woff2") format("woff2");
+  font-weight:100 900;
+  font-style:normal;
+  font-display:swap;
+}
+:root{
+  --ink:#12211e; --sub:#4c5f5a; --line:#dfe8e5; --bg:#f6f8f7; --card:#ffffff;
+  --brand:#0e4b49; --brand-2:#12655f; --tint:#e7f2ef; --accent:#25c2a0; --warn:#b3261e;
+  --radius:18px; --shadow:0 10px 30px rgba(14,75,73,.08);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0; background:var(--bg); color:var(--ink);
+  font-family:"Vazirmatn",Tahoma,system-ui,sans-serif; font-size:16px; line-height:1.9;
+}
+img{max-width:100%; display:block}
+a{color:var(--brand-2)}
+.wrap{max-width:1080px; margin-inline:auto; padding-inline:20px}
+/* ---------- header ---------- */
+.topbar{position:sticky; top:0; z-index:20; background:rgba(255,255,255,.92); backdrop-filter:blur(6px); border-bottom:1px solid var(--line)}
+.topbar .wrap{display:flex; align-items:center; gap:12px; padding-block:10px}
+.topbar img{width:34px; height:34px}
+.topbar .name{font-weight:800; font-size:18px}
+.topbar .badge{margin-inline-start:auto; background:var(--tint); color:var(--brand); border:1px solid var(--line); border-radius:999px; padding:2px 12px; font-size:12px; font-weight:700}
+/* ---------- hero ---------- */
+.hero{padding:56px 0 30px; text-align:right}
+.hero h1{font-size:clamp(30px,5vw,46px); font-weight:900; margin:0 0 10px; color:var(--brand)}
+.hero .lead{font-size:clamp(16px,2.2vw,19px); color:var(--sub); max-width:720px; margin:0 0 18px}
+.chips{display:flex; flex-wrap:wrap; gap:10px; margin:0 0 26px; padding:0; list-style:none}
+.chips li{background:var(--card); border:1px solid var(--line); border-radius:999px; padding:6px 14px; font-size:13.5px; font-weight:700; color:var(--brand-2); box-shadow:var(--shadow)}
+.hero figure{margin:0; background:var(--card); border:1px solid var(--line); border-radius:var(--radius); padding:10px; box-shadow:var(--shadow)}
+.hero figure img{border-radius:12px}
+.hero figcaption{padding:10px 6px 4px; color:var(--sub); font-size:13px}
+/* ---------- sections ---------- */
+section{padding:34px 0}
+h2{font-size:clamp(22px,3.4vw,30px); font-weight:800; color:var(--brand); margin:0 0 6px}
+h2::after{content:""; display:block; width:56px; height:4px; border-radius:4px; background:var(--accent); margin-top:8px}
+.section-note{color:var(--sub); margin:0 0 20px}
+/* gallery */
+.gallery{display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:16px}
+.gallery button{
+  padding:0; border:1px solid var(--line); background:var(--card); border-radius:14px; overflow:hidden;
+  cursor:zoom-in; box-shadow:var(--shadow); font:inherit; text-align:right;
+}
+.gallery button img{transition:transform .25s ease}
+.gallery button:hover img{transform:scale(1.03)}
+.gallery button .cap{display:block; padding:10px 12px; font-size:13px; font-weight:700; color:var(--brand-2); border-top:1px solid var(--line)}
+/* lightbox */
+.lb{position:fixed; inset:0; z-index:60; display:none; background:rgba(10,20,18,.88)}
+.lb.open{display:block}
+.lb-stage{position:absolute; inset:56px 0 64px; overflow:hidden; touch-action:none; cursor:grab}
+.lb-stage.dragging{cursor:grabbing}
+.lb-stage img{
+  position:absolute; top:50%; left:50%; max-width:none; user-select:none; -webkit-user-drag:none;
+  transform-origin:center center; border-radius:8px; background:#fff;
+  box-shadow:0 20px 60px rgba(0,0,0,.45);
+}
+.lb-bar{position:absolute; top:0; right:0; left:0; display:flex; align-items:center; gap:8px; padding:10px 14px; color:#eaf5f2}
+.lb-bar .title{font-weight:700; font-size:14px; margin-inline-end:auto; white-space:nowrap; overflow:hidden; text-overflow:ellipsis}
+.lb-bar .zoomval{font-size:12.5px; font-weight:700; background:rgba(255,255,255,.14); border-radius:999px; padding:2px 10px; min-width:56px; text-align:center}
+.lb-btn{
+  border:1px solid rgba(255,255,255,.25); background:rgba(255,255,255,.12); color:#fff; border-radius:10px;
+  width:38px; height:38px; font-size:17px; font-weight:800; cursor:pointer; font-family:inherit; line-height:1;
+}
+.lb-btn:hover{background:rgba(255,255,255,.22)}
+.lb-btn.wide{width:auto; padding-inline:12px; font-size:13px}
+.lb-hint{position:absolute; bottom:0; right:0; left:0; text-align:center; color:#bcd6cf; font-size:12px; padding:8px 12px}
+/* features / tech */
+.grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:14px}
+.card{background:var(--card); border:1px solid var(--line); border-radius:14px; padding:16px 18px; box-shadow:var(--shadow)}
+.card h3{margin:0 0 6px; font-size:16.5px; font-weight:800; color:var(--brand)}
+.card p{margin:0; font-size:14px; color:var(--sub)}
+ul.tight{margin:0; padding-inline-start:22px; color:var(--sub)}
+ul.tight li{margin-bottom:8px}
+ul.tight b{color:var(--ink)}
+/* compatibility */
+.compat{display:flex; flex-wrap:wrap; gap:10px}
+.compat span{background:var(--tint); border:1px solid var(--line); color:var(--brand); border-radius:12px; padding:8px 16px; font-weight:800; font-size:14px}
+/* faq */
+details{background:var(--card); border:1px solid var(--line); border-radius:12px; padding:12px 16px; margin-bottom:10px}
+details summary{cursor:pointer; font-weight:800; color:var(--brand); font-size:15px}
+details p{margin:10px 0 2px; color:var(--sub); font-size:14px}
+/* footer */
+footer{border-top:1px solid var(--line); background:#eef4f2; padding:22px 0; margin-top:30px}
+footer .wrap{display:flex; flex-wrap:wrap; gap:8px; align-items:center; justify-content:space-between; color:var(--sub); font-size:13px}
+footer img{width:26px; height:26px}
+footer .who{display:flex; align-items:center; gap:8px; font-weight:800; color:var(--brand)}
+@media (max-width:640px){
+  .hero{padding-top:34px}
+  .lb-stage{inset:52px 0 58px}
+}
